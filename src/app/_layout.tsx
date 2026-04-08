@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { ClerkProvider } from '@clerk/expo'
 import { tokenCache } from '@clerk/expo/token-cache'
 import "../../global.css"
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import * as Sentry from '@sentry/react-native';
 
@@ -32,10 +33,13 @@ if (!publishableKey) {
 export default function RootLayout() {
   return (
   <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+     <GestureHandlerRootView className="flex-1">
+     
     <Stack screenOptions={{headerShown:false}}>
        <Stack.Screen name="(auth)" options={{title:"Auth"}} />
        <Stack.Screen name="(tabs)" options={{title:"Tabs"}} />
     </Stack>
+      </GestureHandlerRootView>
   </ClerkProvider>
   )
 }
