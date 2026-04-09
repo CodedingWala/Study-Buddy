@@ -1,6 +1,6 @@
 import { studyBuddyTheme } from "@/lib/theme";
 import { useUser } from "@clerk/expo"
-import type { UserResource } from "@clerk/expo/types";
+import type { UserResource } from "@clerk/expo/types"; /* this is only imports the clerk User type for making the type script happy*/ 
 import { useEffect, useRef } from "react";
 import { Chat, OverlayProvider, useCreateChatClient } from "stream-chat-expo";
 import { FullScreenLoader } from "./FullScreenLoader";
