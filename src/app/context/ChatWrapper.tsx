@@ -87,4 +87,3 @@ const ChatWrapper = ({ children }: { children: React.ReactNode }) => {
 };
 export default ChatWrapper;
 
-// TODO: ADD sentry logs link in the video
