@@ -9,10 +9,14 @@ import type { Channel } from "stream-chat";
 import { TextInput } from 'react-native-gesture-handler'
 import { COLORS } from '@/lib/theme'
 import { getGreeting } from '@/lib/Utils'
+import { useRouter } from 'expo-router'
+import { useAppContext } from '../context/AppContext'
 
 const Home = () => {
   const [Search, setSearch] = useState("")
   const { user } = useUser()
+  const router=useRouter()
+  const {setChannel}=useAppContext()
   const filters = { members: { $in: [user?.id!] }, type: "messaging" };
 
 
@@ -53,9 +57,13 @@ const Home = () => {
       </View>
       <ChannelList
         filters={filters}
+        onSelect={(channel)=>{
+          setChannel(channel)
+          router.push(`/channel/${channel?.id}`)
+        }}
         options={{ state: true, watch: true }}
         channelRenderFilterFn={channelRenderFilterFn}
-          additionalFlatListProps={{
+        additionalFlatListProps={{
           contentContainerStyle: { flexGrow: 1 },
         }}
       />

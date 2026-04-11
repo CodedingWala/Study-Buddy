@@ -12,3 +12,5 @@ export function FullScreenLoader({ message }: { message: string }) {
     </SafeAreaView>
   );
 }
+
+export default FullScreenLoader

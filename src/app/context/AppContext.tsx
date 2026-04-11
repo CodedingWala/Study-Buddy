@@ -26,3 +26,5 @@ export const AppProvider = ({ children }:{children:React.ReactNode}) => {
 };
 
 export const useAppContext = () => React.useContext(AppContext);
+
+export default AppProvider

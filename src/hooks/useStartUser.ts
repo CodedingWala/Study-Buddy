@@ -17,7 +17,7 @@ const useStartUser = ({ client, userId, setChannel, setCreating }: startUserType
       const channel = client.channel("messaging", { members: [userId, targetId] })
       channel.watch()
       setChannel(channel)
-      // router.push(`/channel/${channel.cid}`)
+      router.push(`/channel/${channel.id}`)
     } catch (error) {
       console.log("Error in useStartUser: ", error)
     } finally {
