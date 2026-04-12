@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons"
 import { useAuth, useUser } from '@clerk/expo'
 import * as sentry from "@sentry/react-native"
 import { ChannelList} from 'stream-chat-expo'
-import type { Channel } from "stream-chat";
+import  { Channel } from "stream-chat";
 import { TextInput } from 'react-native-gesture-handler'
 import { COLORS } from '@/lib/theme'
 import { getGreeting } from '@/lib/Utils'

@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, Pressable, ActivityIndicator } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import { useAppContext } from '@/app/context/AppContext'
 import { Channel, MessageInput, MessageList, useChatContext } from 'stream-chat-expo'
 import { useNavigation, useRouter } from 'expo-router'
@@ -95,7 +94,7 @@ if(!channel){
         />
 
         <View className="pb-10 bg-surface">
-          <MessageInput/>
+          <MessageInput audioRecordingEnabled />
         </View>
       </Channel>
     </View>
