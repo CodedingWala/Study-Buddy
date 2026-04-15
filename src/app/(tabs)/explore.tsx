@@ -26,6 +26,7 @@ const Explore = () => {
   const filteredUser = !search.trim()? users : users?.filter((u)=>(
     u.name?.toLowerCase().includes(search.toLocaleLowerCase()) || 
     u.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+    
   ))
 
   const {handlerStartChat}=useStartUser({client, userId, setChannel,setCreating })

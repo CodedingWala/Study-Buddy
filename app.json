@@ -8,7 +8,12 @@
     "scheme": "studybuddy",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/icon.png",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Study Buddy needs camera access for video calls",
+        "NSMicrophoneUsageDescription": "Study Buddy needs microphone access for audio and video calls"
+      },
+      "deploymentTarget": "15.1"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,8 +22,14 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "icon": "./assets/images/icon.png",
       "predictiveBackGestureEnabled": false,
-      "package": "com.javedansari.Study_Buddy"
+      "package": "com.javedansari.Study_Buddy",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "output": "server",
@@ -37,6 +48,31 @@
           }
         }
       ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          },
+          "ios": {
+            "deploymentTarget": "15.1"
+          }
+        }
+      ],
+      [
+        "@stream-io/video-react-native-sdk",
+        {
+          "enableVideoCalls": true,
+          "enableAudioCalls": true
+        }
+      ],
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "$(PRODUCT_NAME) requires camera access in order to capture and transmit video",
+          "microphonePermission": "$(PRODUCT_NAME) requires microphone access in order to capture and transmit audio"
+        }
+      ],
       "expo-web-browser",
       [
         "@sentry/react-native/expo",
@@ -46,7 +82,9 @@
           "organization": "javeds-organization"
         }
       ],
-      "expo-audio"
+      "expo-audio",
+      "expo-video",
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as Sentry from '@sentry/react-native';
 import { AppProvider } from "./context/AppContext";
 import ChatWrapper from "./context/ChatWrapper";
+import CallProvider from "@/components/CallProvider";
 
 Sentry.init({
   dsn: 'https://eaa9af32997836fe4b7dac2ec6811366@o4511172701716480.ingest.us.sentry.io/4511179291033600',
@@ -37,12 +38,14 @@ export default function RootLayout() {
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <GestureHandlerRootView className="flex-1">
         <ChatWrapper>
-          <AppProvider>
+          <CallProvider>
+            <AppProvider>
             <Stack screenOptions={{ headerShown: false }}>
               <Stack.Screen name="(auth)" options={{ title: "Auth" }} />
               <Stack.Screen name="(tabs)" options={{ title: "Tabs" }} />
             </Stack>
           </AppProvider>
+          </CallProvider>
         </ChatWrapper>
       </GestureHandlerRootView>
     </ClerkProvider>

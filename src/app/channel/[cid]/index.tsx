@@ -36,7 +36,7 @@ const index = () => {
       },
       headerTintColor: COLORS.text,
       headerLeft: () => (
-        <TouchableOpacity onPress={() => router.back()} className="ml-2 flex-row items-cente">
+        <TouchableOpacity onPress={() => router.back()} className="ml-2 flex-row items-center">
           <Ionicons name="arrow-back" size={24} color={COLORS.text} />
         </TouchableOpacity>
       ),
@@ -59,7 +59,10 @@ const index = () => {
       ),
       headerRight:()=>(
         <Pressable onPress={()=>{
-            // router.push(`/channel/${channel?.cid}/thread/${thread?.cid}`);
+              router.push({
+            pathname:"/call/[callId]",
+            params:{callId:channel?.id}
+          });
         }}>
           <Ionicons name="videocam-outline" size={30} color={COLORS.primary} />
         </Pressable>

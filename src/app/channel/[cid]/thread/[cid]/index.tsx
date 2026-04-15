@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Pressable, ActivityIndicator } from 'react-native'
+import { View, Text, TouchableOpacity, Pressable, ActivityIndicator, Alert } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useAppContext } from '@/app/context/AppContext'
 import { Channel, MessageInput, MessageList, Thread, useChatContext } from 'stream-chat-expo'
@@ -62,7 +62,10 @@ const index = () => {
        ),
        headerRight:()=>(
          <Pressable onPress={()=>{
-             // router.push(`/channel/${channel?.cid}/thread/${thread?.cid}`);
+          router.push({
+            pathname:"/call/[callId]",
+            params:{callId:channel?.id}
+          });
          }}>
            <Ionicons name="videocam-outline" size={30} color={COLORS.primary} />
          </Pressable>

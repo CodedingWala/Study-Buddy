@@ -12,7 +12,7 @@ const SocialHooks = () => {
         try {
             const { createdSessionId, setActive } = await startSSOFlow({
                 strategy,
-                redirectUrl: Linking.createURL('/(tabs)/', { scheme: 'mobile' })
+                redirectUrl: Linking.createURL('/(tabs)/', { scheme: 'studybuddy' })
             })
             if (!createdSessionId || !setActive) {
                 const provider = strategy === "oauth_apple" ? "Apple" : strategy === "oauth_google" ? "Google" : "Github"

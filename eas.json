@@ -6,14 +6,25 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
-      
-    },
-    "preview": {
       "distribution": "internal"
     },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"     // ← Add this to build APK
+      }
+    },
+    "preview-ios": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": false
+      }
+    },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"     // ← AAB for Play Store
+      }
     }
   },
   "submit": {
